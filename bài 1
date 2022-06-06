@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label for="a">a</label>
+      <input id="a" type="number" />
+    </div>
+    <div>
+      <label for="b">b</label>
+      <input id="b" type="number" />
+    </div>
+    <div id="demo"></div>
+    <button onclick="myFunction()">Calculate</button>
+    <script>
+      function myFunction() {
+        let string = "";
+        let arr = [];
+        const a = Number(document.getElementById("a").value);
+        const b = Number(document.getElementById("b").value);
+        for (let i = a; i <= b; i++) {
+          arr.push(i);
+        }
+
+        for (let i = 0; i < arr.length; ++i) {
+          let check = find_square_number(arr[i]);
+          if (check == 1) {
+            string += arr[i] + ", ";
+          }
+        }
+        document.getElementById("demo").innerHTML = string;
+      }
+
+      function find_square_number(n) {
+        let flag = 0;
+        let i = 0;
+        while (i <= n) {
+          if (Math.pow(i, 2) == n) {
+            flag = 1;
+            break;
+          }
+          i++;
+        }
+
+        return flag;
+      }
+    </script>
+  </body>
+</html>
